@@ -65,12 +65,15 @@ The optimization uses simulated annealing to find good group assignments.
 2. Iterate thousands of times, making small random changes
 3. Accept improvements, but occasionally accept worse changes to escape local optima
 4. Gradually reduce temperature to converge on a solution
+5. Reheat when stagnating to escape local optima
+6. Run multiple restarts and keep the best result
 
 ### Moves
 
 Each iteration randomly selects one of:
-- SWAP: Exchange two students between different groups
-- MOVE: Transfer one student to a different group
+- SWAP (40%): Exchange two students between different groups
+- MOVE (40%): Transfer one student to a different group
+- DOUBLE MOVE (20%): Transfer two students for larger jumps in solution space
 
 ### Scoring
 
@@ -89,15 +92,25 @@ Score = sum(likes_in_group * likes_weight)
 | MAX constraint violated | 50 points per extra student |
 | SOME constraint violated | 25 points if zero students |
 
+Pinned students are exempt from constraint penalties.
+
 ### Parameters
 
 | Parameter | Default | Description |
 |-----------|---------|-------------|
-| Initial temperature | 100 | Higher values increase early exploration |
-| Cooling rate | 0.997 | Lower values mean slower, more thorough cooling |
-| Minimum temperature | 0.1 | Algorithm stops when reached |
-| Max iterations | 15,000 | Hard limit per restart |
-| Number of restarts | 5 | Best result across all restarts is kept |
+| Initial temperature | 200 | Higher values increase early exploration |
+| Cooling rate | 0.9995 | Slower cooling for more thorough search |
+| Minimum temperature | 0.01 | Algorithm stops when reached |
+| Max iterations | 25,000 | Hard limit per restart |
+| Number of restarts | 10 | Best result across all restarts is kept |
+| Reheat threshold | 2,000 | Iterations without improvement before reheating |
+
+### Improvements
+
+- Adaptive cooling: slows down when finding improvements
+- Reheating: triples temperature when stuck to escape local optima
+- Smart initial assignment: prioritizes students with more preferences
+- Controlled randomness in initial state to improve diversity across restarts
 
 ## Installation
 

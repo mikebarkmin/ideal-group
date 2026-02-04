@@ -23,7 +23,7 @@ from .info_widget import InfoWidget
 from .export_dialog import ExportDialog
 from .relationship_graph import RelationshipGraphWindow
 
-MAX_ITERATIONS_PER_RESTART = 15000
+MAX_ITERATIONS_PER_RESTART = 25000
 
 
 class OptimizationThread(QThread):
@@ -32,7 +32,7 @@ class OptimizationThread(QThread):
     progress = Signal(int, float, float, int)  # iteration, temperature, score, restart_num
     finished_signal = Signal(object)  # optimized project
     
-    def __init__(self, project: Project, num_restarts: int = 5):
+    def __init__(self, project: Project, num_restarts: int = 10):
         super().__init__()
         self.project = project
         self.num_restarts = num_restarts
@@ -44,9 +44,9 @@ class OptimizationThread(QThread):
         result = optimize_with_restarts(
             self.project,
             num_restarts=self.num_restarts,
-            initial_temp=100.0,
-            cooling_rate=0.997,
-            min_temp=0.1,
+            initial_temp=200.0,
+            cooling_rate=0.9995,
+            min_temp=0.01,
             max_iterations=MAX_ITERATIONS_PER_RESTART,
             progress_callback=progress_callback
         )
@@ -323,9 +323,9 @@ class MainWindow(QMainWindow):
             self, 
             tr("Optimization Runs"),
             tr("Number of optimization runs (more = better results, slower):"),
-            value=5,
+            value=10,
             minValue=1,
-            maxValue=20
+            maxValue=30
         )
         if not ok:
             return
@@ -333,6 +333,9 @@ class MainWindow(QMainWindow):
         # Update project from UI
         self.project.groups = self.group_config.get_groups()
         self.project.weights = self.weights_widget.get_weights()
+        
+        # Store current score to compare later
+        self._score_before_optimization = calculate_total_score(self.project)
         
         # Store for progress callback
         self._num_restarts = num_restarts
@@ -371,12 +374,22 @@ class MainWindow(QMainWindow):
             self.progress_dialog.close()
             self.progress_dialog = None
         
-        self.project = result
-        self.group_config.set_groups(self.project.groups)
-        self.refresh_ui()
+        new_score = calculate_total_score(result)
+        old_score = getattr(self, '_score_before_optimization', float('-inf'))
         
-        score = calculate_total_score(self.project)
-        self.statusbar.showMessage(f"Optimization complete. Total score: {score:.1f}")
+        if new_score > old_score:
+            # New result is better, use it
+            self.project = result
+            self.group_config.set_groups(self.project.groups)
+            self.refresh_ui()
+            self.statusbar.showMessage(
+                f"{tr('Optimization complete.')} {tr('Score')}: {old_score:.1f} -> {new_score:.1f} (+{new_score - old_score:.1f})"
+            )
+        else:
+            # Keep current assignment
+            self.statusbar.showMessage(
+                f"{tr('Optimization complete.')} {tr('Kept current result')} ({tr('Score')}: {old_score:.1f} >= {new_score:.1f})"
+            )
     
     def on_optimization_canceled(self):
         if self.optimization_thread and self.optimization_thread.isRunning():

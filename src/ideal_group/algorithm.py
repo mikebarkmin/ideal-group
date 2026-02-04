@@ -1,4 +1,4 @@
-"""Simulated annealing algorithm for student grouping optimization."""
+"""Simulated annealing algorithm for student grouping optimization - IMPROVED VERSION."""
 
 import random
 import math
@@ -199,7 +199,10 @@ def get_student_score_in_group(student: Student, group: Group, project: Project)
 
 
 def initial_assignment(project: Project) -> Project:
-    """Create an initial assignment respecting hard constraints and pinned students."""
+    """Create an initial assignment respecting hard constraints and pinned students.
+    
+    IMPROVED: Better handling of students with preferences and fallback logic.
+    """
     result = deepcopy(project)
     
     # Collect pinned students (they stay in their groups)
@@ -218,7 +221,16 @@ def initial_assignment(project: Project) -> Project:
         assigned_ids.update(group.student_ids)
     
     unassigned = [s for s in result.students if s.id not in assigned_ids]
-    random.shuffle(unassigned)
+    
+    # IMPROVED: Sort by number of preferences (students with more preferences first)
+    # This helps place highly-connected students in better positions
+    unassigned.sort(key=lambda s: len(s.liked) + len(s.disliked), reverse=True)
+    
+    # IMPROVED: Add controlled randomness to prevent identical initial states
+    for i in range(len(unassigned)):
+        if random.random() < 0.3:  # 30% chance to shuffle each position
+            j = random.randint(0, len(unassigned) - 1)
+            unassigned[i], unassigned[j] = unassigned[j], unassigned[i]
     
     # First pass: handle ALL constraints (skip pinned students - they're already handled)
     for group in result.groups:
@@ -237,22 +249,29 @@ def initial_assignment(project: Project) -> Project:
         for constraint in group.constraints:
             if constraint.constraint_type == ConstraintType.SOME:
                 char_name = constraint.characteristic
+                # SOME means at least 1, but respect value if provided
+                min_count = 1
                 max_count = constraint.value if constraint.value else 1
+                
                 current = sum(1 for sid in group.student_ids 
                             if result.get_student_by_id(sid).characteristics.get(char_name) is True)
                 
-                to_add = [s for s in unassigned 
-                         if s.characteristics.get(char_name) is True]
-                
-                for student in to_add[:max_count - current]:
-                    if len(group.student_ids) < group.max_size:
-                        group.student_ids.append(student.id)
-                        unassigned.remove(student)
+                if current < min_count:
+                    to_add = [s for s in unassigned 
+                             if s.characteristics.get(char_name) is True]
+                    
+                    for student in to_add[:max_count - current]:
+                        if len(group.student_ids) < group.max_size:
+                            group.student_ids.append(student.id)
+                            unassigned.remove(student)
     
     # Third pass: distribute remaining students
     group_idx = 0
+    remaining_unassigned = []
+    
     for student in unassigned:
-        # Find next group with space
+        placed = False
+        # Try to find a suitable group
         attempts = 0
         while attempts < len(result.groups):
             group = result.groups[group_idx]
@@ -265,24 +284,37 @@ def initial_assignment(project: Project) -> Project:
                         if student.characteristics.get(char_name) is True:
                             current = sum(1 for sid in group.student_ids 
                                         if result.get_student_by_id(sid).characteristics.get(char_name) is True)
-                            if current >= constraint.value:
+                            if constraint.value and current >= constraint.value:
                                 can_add = False
                                 break
                 
                 if can_add:
                     group.student_ids.append(student.id)
+                    placed = True
                     break
             
             group_idx = (group_idx + 1) % len(result.groups)
             attempts += 1
-        else:
-            # Fallback: add to first group with space
-            for group in result.groups:
-                if len(group.student_ids) < group.max_size:
-                    group.student_ids.append(student.id)
-                    break
+        
+        if not placed:
+            remaining_unassigned.append(student)
         
         group_idx = (group_idx + 1) % len(result.groups)
+    
+    # IMPROVED: Better fallback for students that couldn't be placed
+    for student in remaining_unassigned:
+        # First try: find any group with space
+        placed = False
+        for group in result.groups:
+            if len(group.student_ids) < group.max_size:
+                group.student_ids.append(student.id)
+                placed = True
+                break
+        
+        # IMPROVED: Ultimate fallback - place in smallest group even if over max_size
+        if not placed:
+            smallest = min(result.groups, key=lambda g: len(g.student_ids))
+            smallest.student_ids.append(student.id)
     
     return result
 
@@ -337,9 +369,8 @@ def move_student(project: Project) -> Project:
     source, movable = random.choice(groups_with_movable)
     student_id = random.choice(movable)
     
-    # Pick target group (different, with space)
-    targets = [g for g in result.groups 
-               if g != source and len(g.student_ids) < g.max_size]
+    # Pick any different target group (allow over-capacity, penalties will handle it)
+    targets = [g for g in result.groups if g != source]
     if not targets:
         return result
     
@@ -352,31 +383,121 @@ def move_student(project: Project) -> Project:
     return result
 
 
+def smart_move_student(project: Project) -> Project:
+    """Move a student toward liked peers or away from disliked peers."""
+    result = deepcopy(project)
+    
+    # Find students with unsatisfied preferences
+    candidates = []
+    for group in result.groups:
+        pinned = set(group.pinned_student_ids)
+        group_ids = set(group.student_ids)
+        
+        for sid in group.student_ids:
+            if sid in pinned:
+                continue
+            student = result.get_student_by_id(sid)
+            if not student:
+                continue
+            
+            # Count dislikes in current group (bad) and likes outside (missed opportunities)
+            dislikes_here = len(set(student.disliked) & group_ids)
+            likes_elsewhere = len(set(student.liked) - group_ids)
+            
+            if dislikes_here > 0 or likes_elsewhere > 0:
+                candidates.append((sid, group, dislikes_here + likes_elsewhere))
+    
+    if not candidates:
+        return move_student(result)  # Fallback to random move
+    
+    # Pick a candidate weighted by unhappiness
+    candidates.sort(key=lambda x: x[2], reverse=True)
+    # Take from top 30% of unhappy students
+    top_candidates = candidates[:max(1, len(candidates) // 3)]
+    student_id, source, _ = random.choice(top_candidates)
+    
+    student = result.get_student_by_id(student_id)
+    
+    # Find best target group (has liked students or fewer disliked)
+    best_targets = []
+    for group in result.groups:
+        if group == source:
+            continue
+        group_ids = set(group.student_ids)
+        likes_there = len(set(student.liked) & group_ids)
+        dislikes_there = len(set(student.disliked) & group_ids)
+        score = likes_there - dislikes_there
+        best_targets.append((group, score))
+    
+    if not best_targets:
+        return result
+    
+    # Sort by score and pick from top choices with some randomness
+    best_targets.sort(key=lambda x: x[1], reverse=True)
+    top_targets = best_targets[:max(1, len(best_targets) // 2)]
+    target, _ = random.choice(top_targets)
+    
+    # Move
+    source.student_ids.remove(student_id)
+    target.student_ids.append(student_id)
+    
+    return result
+
+
+def generate_neighbor(project: Project) -> Project:
+    """Generate a neighbor solution using multiple strategies."""
+    rand = random.random()
+    
+    if rand < 0.3:
+        # 30% chance: swap two students
+        return swap_students(project)
+    elif rand < 0.6:
+        # 30% chance: random move
+        return move_student(project)
+    elif rand < 0.9:
+        # 30% chance: smart move (preference-based)
+        return smart_move_student(project)
+    else:
+        # 10% chance: double move for bigger jumps
+        temp = move_student(project)
+        return move_student(temp)
+
+
 def simulated_annealing(
     project: Project,
-    initial_temp: float = 100.0,
-    cooling_rate: float = 0.997,
-    min_temp: float = 0.1,
-    max_iterations: int = 15000,
-    progress_callback: Callable[[int, float, float], None] | None = None
+    initial_temp: float = 200.0,
+    cooling_rate: float = 0.9995,
+    min_temp: float = 0.01,
+    max_iterations: int = 25000,
+    progress_callback: Callable[[int, float, float], None] | None = None,
+    verbose: bool = False,
+    use_current_assignment: bool = False
 ) -> Project:
     """
     Optimize group assignments using simulated annealing.
     
+    IMPROVED: Better temperature schedule, reheating, and adaptive cooling.
+    
     Args:
         project: The project with groups and constraints defined
-        initial_temp: Starting temperature
+        initial_temp: Starting temperature (increased from 100 to 200)
         cooling_rate: Temperature multiplier each iteration
         min_temp: Stop when temperature reaches this
-        max_iterations: Maximum iterations
+        max_iterations: Maximum iterations (increased from 15000 to 25000)
         progress_callback: Called with (iteration, temperature, score)
+        verbose: Print diagnostic information
+        use_current_assignment: If True, start from current assignment instead of generating new one
     
     Returns:
         Project with optimized assignments
     """
-    # Start with initial assignment
-    current = initial_assignment(project)
+    # Start with current or new initial assignment
+    if use_current_assignment:
+        current = deepcopy(project)
+    else:
+        current = initial_assignment(project)
     current_score = calculate_total_score(current)
+    initial_score = current_score
     
     best = deepcopy(current)
     best_score = current_score
@@ -384,65 +505,106 @@ def simulated_annealing(
     temperature = initial_temp
     iteration = 0
     
+    # Track stagnation for reheating
+    iterations_since_improvement = 0
+    last_best_score = best_score
+    
+    # Diagnostic counters
+    moves_accepted = 0
+    moves_rejected = 0
+    moves_improved = 0
+    same_score_count = 0
+    
     while temperature > min_temp and iteration < max_iterations:
-        # Generate neighbor
-        if random.random() < 0.5:
-            neighbor = swap_students(current)
-        else:
-            neighbor = move_student(current)
-        
+        # Generate neighbor using diverse strategies
+        neighbor = generate_neighbor(current)
         neighbor_score = calculate_total_score(neighbor)
         
         # Decide whether to accept
         delta = neighbor_score - current_score
         
+        if delta == 0:
+            same_score_count += 1
+        
         if delta > 0:
             # Better solution, always accept
             current = neighbor
             current_score = neighbor_score
+            moves_accepted += 1
+            moves_improved += 1
         else:
             # Worse solution, accept with probability
             prob = math.exp(delta / temperature)
             if random.random() < prob:
                 current = neighbor
                 current_score = neighbor_score
+                moves_accepted += 1
+            else:
+                moves_rejected += 1
         
         # Track best
         if current_score > best_score:
             best = deepcopy(current)
             best_score = current_score
+            iterations_since_improvement = 0
+        else:
+            iterations_since_improvement += 1
         
-        # Cool down
-        temperature *= cooling_rate
+        # IMPROVED: Adaptive cooling - cool slower when finding improvements
+        if current_score > last_best_score:
+            temperature *= (cooling_rate + 0.0003)  # Slower cooling
+            last_best_score = current_score
+        else:
+            temperature *= cooling_rate  # Normal cooling
+        
+        # IMPROVED: Reheating to escape local optima
+        if iterations_since_improvement > 2000 and iteration > 0:
+            if verbose:
+                print(f"  Reheating at iteration {iteration} (stagnant for {iterations_since_improvement} iters)")
+            temperature = min(temperature * 3.0, initial_temp * 0.5)
+            iterations_since_improvement = 0
+        
         iteration += 1
         
         # Progress callback
         if progress_callback and iteration % 100 == 0:
             progress_callback(iteration, temperature, best_score)
     
+    if verbose:
+        print(f"  Final: iteration {iteration}/{max_iterations}, temp {temperature:.4f}")
+        print(f"  Moves: {moves_accepted} accepted, {moves_rejected} rejected, {moves_improved} improved")
+        print(f"  Same score moves: {same_score_count} ({100*same_score_count/max(1,iteration):.1f}%)")
+        print(f"  Score: {initial_score:.1f} → {best_score:.1f} (Δ{best_score - initial_score:+.1f})")
+        if iteration >= max_iterations:
+            print("  (hit max iterations)")
+    
     return best
 
 
 def optimize_with_restarts(
     project: Project,
-    num_restarts: int = 5,
-    initial_temp: float = 100.0,
-    cooling_rate: float = 0.997,
-    min_temp: float = 0.1,
-    max_iterations: int = 15000,
-    progress_callback: Callable[[int, float, float, int], None] | None = None
+    num_restarts: int = 10,
+    initial_temp: float = 200.0,
+    cooling_rate: float = 0.9995,
+    min_temp: float = 0.01,
+    max_iterations: int = 25000,
+    progress_callback: Callable[[int, float, float, int], None] | None = None,
+    verbose: bool = True
 ) -> Project:
     """
     Run simulated annealing multiple times and return the best result.
     
+    IMPROVED: Better tracking, diagnostics, and increased default restarts.
+    
     Args:
         project: The project with groups and constraints defined
-        num_restarts: Number of times to run the optimization
+        num_restarts: Number of times to run the optimization (increased from 5 to 10)
         initial_temp: Starting temperature for each run
         cooling_rate: Temperature multiplier each iteration
         min_temp: Stop when temperature reaches this
         max_iterations: Maximum iterations per run
         progress_callback: Called with (iteration, temperature, score, restart_num)
+        verbose: Print diagnostic information
     
     Returns:
         Project with the best optimized assignments across all runs
@@ -450,12 +612,25 @@ def optimize_with_restarts(
     overall_best = None
     overall_best_score = float('-inf')
     
+    scores = []  # Track all run scores for statistics
+    
+    if verbose:
+        print(f"Starting optimization with {num_restarts} restarts...")
+        print(f"  (restart 1 uses current assignment, others use random initial assignments)")
+    
     for restart in range(num_restarts):
+        if verbose:
+            restart_type = "current" if restart == 0 else "random"
+            print(f"\nRestart {restart + 1}/{num_restarts} ({restart_type}):")
+        
         def restart_callback(iteration, temp, score):
             if progress_callback:
                 # Adjust iteration to show overall progress
                 total_iter = restart * max_iterations + iteration
                 progress_callback(total_iter, temp, score, restart + 1)
+        
+        # First restart uses current assignment, subsequent ones generate new initial assignments
+        use_current = (restart == 0)
         
         result = simulated_annealing(
             project,
@@ -463,12 +638,49 @@ def optimize_with_restarts(
             cooling_rate=cooling_rate,
             min_temp=min_temp,
             max_iterations=max_iterations,
-            progress_callback=restart_callback
+            progress_callback=restart_callback,
+            verbose=verbose,
+            use_current_assignment=use_current
         )
         
         score = calculate_total_score(result)
+        scores.append(score)
+        
         if score > overall_best_score:
             overall_best = result
             overall_best_score = score
+            if verbose:
+                print(f"  >>> New best score: {score:.1f}")
+        
+        # If we found a better solution, use it as basis for some future restarts
+        if overall_best is not None and restart == num_restarts // 2:
+            # Midway through, update project to best found so far for more focused search
+            project = deepcopy(overall_best)
+    
+    # Print statistics
+    if verbose and len(scores) > 1:
+        mean_score = sum(scores) / len(scores)
+        variance = sum((s - mean_score) ** 2 for s in scores) / len(scores)
+        std_dev = variance ** 0.5
+        
+        print(f"\n{'='*60}")
+        print(f"Optimization Complete!")
+        print(f"{'='*60}")
+        print(f"Scores across {num_restarts} runs: {[f'{s:.1f}' for s in scores]}")
+        print(f"Best:  {max(scores):.1f}")
+        print(f"Worst: {min(scores):.1f}")
+        print(f"Mean:  {mean_score:.1f}")
+        print(f"StdDev: {std_dev:.1f}")
+        print(f"Range: {max(scores) - min(scores):.1f}")
+        print(f"{'='*60}")
+        
+        # Validate final result
+        valid, violations = check_hard_constraints(overall_best)
+        if not valid:
+            print(f"⚠️  WARNING: Final result has constraint violations:")
+            for v in violations:
+                print(f"  - {v}")
+        else:
+            print(f"✓ All hard constraints satisfied")
     
     return overall_best
