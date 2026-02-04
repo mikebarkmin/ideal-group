@@ -1,0 +1,3314 @@
+{
+  "excel_path": "/home/mike/Sources/ideal-group/test_students.xlsx",
+  "column_mapping": {
+    "id_column": "id",
+    "name_column": "name",
+    "firstname_column": "",
+    "lastname_column": "",
+    "use_separate_name_columns": false,
+    "liked_column": "liked",
+    "disliked_column": "disliked",
+    "characteristic_columns": {
+      "inklusion": "inklusion",
+      "nawi": "nawi",
+      "bläser": "bläser",
+      "notenschnitt": "notenschnitt"
+    }
+  },
+  "students": [
+    {
+      "id": 1,
+      "name": "Student_001",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 3.6
+      },
+      "liked": [
+        112,
+        92
+      ],
+      "disliked": []
+    },
+    {
+      "id": 2,
+      "name": "Student_002",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 1.1
+      },
+      "liked": [
+        121,
+        15,
+        167,
+        27,
+        17
+      ],
+      "disliked": [
+        108
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Student_003",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 2.1
+      },
+      "liked": [
+        65,
+        51,
+        50,
+        139
+      ],
+      "disliked": []
+    },
+    {
+      "id": 4,
+      "name": "Student_004",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 1.9
+      },
+      "liked": [
+        110,
+        48,
+        73,
+        120,
+        65
+      ],
+      "disliked": []
+    },
+    {
+      "id": 5,
+      "name": "Student_005",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 3.9
+      },
+      "liked": [
+        142,
+        27
+      ],
+      "disliked": [
+        14
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Student_006",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 3.7
+      },
+      "liked": [
+        62,
+        44
+      ],
+      "disliked": []
+    },
+    {
+      "id": 7,
+      "name": "Student_007",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 4.6
+      },
+      "liked": [
+        125,
+        56,
+        104,
+        17,
+        44
+      ],
+      "disliked": [
+        102
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Student_008",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 1.3
+      },
+      "liked": [
+        69,
+        118
+      ],
+      "disliked": [
+        76
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Student_009",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 2.7
+      },
+      "liked": [
+        144,
+        126,
+        41,
+        50,
+        77
+      ],
+      "disliked": [
+        59,
+        16
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Student_010",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 1.1
+      },
+      "liked": [
+        82,
+        16
+      ],
+      "disliked": [
+        14,
+        153
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Student_011",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 1.9
+      },
+      "liked": [
+        137,
+        42,
+        16,
+        132,
+        22
+      ],
+      "disliked": [
+        52,
+        20
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Student_012",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 3.0
+      },
+      "liked": [
+        62,
+        105
+      ],
+      "disliked": [
+        32,
+        149
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Student_013",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 1.1
+      },
+      "liked": [
+        154,
+        11,
+        160
+      ],
+      "disliked": [
+        23,
+        110
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Student_014",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 1.8
+      },
+      "liked": [
+        54,
+        82,
+        63,
+        69
+      ],
+      "disliked": [
+        107
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Student_015",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 3.6
+      },
+      "liked": [
+        167,
+        78,
+        119
+      ],
+      "disliked": [
+        83,
+        20
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Student_016",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 3.2
+      },
+      "liked": [
+        161,
+        146
+      ],
+      "disliked": [
+        27
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Student_017",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 1.9
+      },
+      "liked": [
+        56,
+        131
+      ],
+      "disliked": [
+        70,
+        35
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Student_018",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 3.4
+      },
+      "liked": [
+        64,
+        96,
+        74,
+        42
+      ],
+      "disliked": []
+    },
+    {
+      "id": 19,
+      "name": "Student_019",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 4.2
+      },
+      "liked": [
+        79,
+        158,
+        137,
+        3,
+        143
+      ],
+      "disliked": [
+        80,
+        29
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Student_020",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 1.0
+      },
+      "liked": [
+        31,
+        29,
+        143
+      ],
+      "disliked": [
+        43
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Student_021",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 4.2
+      },
+      "liked": [
+        156,
+        55,
+        89,
+        54
+      ],
+      "disliked": [
+        168
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Student_022",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 3.8
+      },
+      "liked": [
+        127,
+        66,
+        14,
+        25
+      ],
+      "disliked": [
+        168,
+        113
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Student_023",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 2.4
+      },
+      "liked": [
+        1,
+        87,
+        35,
+        165
+      ],
+      "disliked": []
+    },
+    {
+      "id": 24,
+      "name": "Student_024",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 1.6
+      },
+      "liked": [
+        115,
+        143,
+        111,
+        145
+      ],
+      "disliked": []
+    },
+    {
+      "id": 25,
+      "name": "Student_025",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": true,
+        "bläser": false,
+        "notenschnitt": 4.8
+      },
+      "liked": [
+        20,
+        40
+      ],
+      "disliked": []
+    },
+    {
+      "id": 26,
+      "name": "Student_026",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 2.3
+      },
+      "liked": [
+        151,
+        143
+      ],
+      "disliked": [
+        39
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Student_027",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 1.4
+      },
+      "liked": [
+        11,
+        80,
+        95,
+        93,
+        55
+      ],
+      "disliked": []
+    },
+    {
+      "id": 28,
+      "name": "Student_028",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 1.4
+      },
+      "liked": [
+        27,
+        92,
+        145
+      ],
+      "disliked": [
+        108,
+        163
+      ]
+    },
+    {
+      "id": 29,
+      "name": "Student_029",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 4.4
+      },
+      "liked": [
+        43,
+        47,
+        107
+      ],
+      "disliked": []
+    },
+    {
+      "id": 30,
+      "name": "Student_030",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 3.4
+      },
+      "liked": [
+        87,
+        107
+      ],
+      "disliked": []
+    },
+    {
+      "id": 31,
+      "name": "Student_031",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 4.2
+      },
+      "liked": [
+        42,
+        28,
+        99
+      ],
+      "disliked": [
+        10
+      ]
+    },
+    {
+      "id": 32,
+      "name": "Student_032",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 3.9
+      },
+      "liked": [
+        53,
+        119,
+        91,
+        80,
+        60
+      ],
+      "disliked": []
+    },
+    {
+      "id": 33,
+      "name": "Student_033",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 3.1
+      },
+      "liked": [
+        51,
+        104,
+        86
+      ],
+      "disliked": []
+    },
+    {
+      "id": 34,
+      "name": "Student_034",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 4.9
+      },
+      "liked": [
+        73,
+        91,
+        166,
+        132
+      ],
+      "disliked": []
+    },
+    {
+      "id": 35,
+      "name": "Student_035",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 2.5
+      },
+      "liked": [
+        139,
+        86,
+        8,
+        30,
+        68
+      ],
+      "disliked": [
+        49,
+        155
+      ]
+    },
+    {
+      "id": 36,
+      "name": "Student_036",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 3.2
+      },
+      "liked": [
+        28,
+        154,
+        113,
+        90
+      ],
+      "disliked": []
+    },
+    {
+      "id": 37,
+      "name": "Student_037",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 4.3
+      },
+      "liked": [
+        157,
+        132,
+        30,
+        100
+      ],
+      "disliked": [
+        152
+      ]
+    },
+    {
+      "id": 38,
+      "name": "Student_038",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 3.5
+      },
+      "liked": [
+        12,
+        113,
+        1
+      ],
+      "disliked": [
+        138
+      ]
+    },
+    {
+      "id": 39,
+      "name": "Student_039",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 4.4
+      },
+      "liked": [
+        112,
+        18,
+        86
+      ],
+      "disliked": [
+        164
+      ]
+    },
+    {
+      "id": 40,
+      "name": "Student_040",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 3.3
+      },
+      "liked": [
+        32,
+        78,
+        131,
+        81
+      ],
+      "disliked": [
+        109,
+        88
+      ]
+    },
+    {
+      "id": 41,
+      "name": "Student_041",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 3.8
+      },
+      "liked": [
+        77,
+        143,
+        33,
+        51,
+        109
+      ],
+      "disliked": [
+        102,
+        47
+      ]
+    },
+    {
+      "id": 42,
+      "name": "Student_042",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 1.2
+      },
+      "liked": [
+        142,
+        1,
+        79,
+        75
+      ],
+      "disliked": [
+        56
+      ]
+    },
+    {
+      "id": 43,
+      "name": "Student_043",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 1.9
+      },
+      "liked": [
+        157,
+        84,
+        121,
+        115,
+        56
+      ],
+      "disliked": [
+        136,
+        127
+      ]
+    },
+    {
+      "id": 44,
+      "name": "Student_044",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 2.2
+      },
+      "liked": [
+        22,
+        74,
+        133
+      ],
+      "disliked": [
+        167,
+        163
+      ]
+    },
+    {
+      "id": 45,
+      "name": "Student_045",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 1.3
+      },
+      "liked": [
+        62,
+        81,
+        59,
+        52
+      ],
+      "disliked": []
+    },
+    {
+      "id": 46,
+      "name": "Student_046",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 1.9
+      },
+      "liked": [
+        12,
+        64,
+        123
+      ],
+      "disliked": []
+    },
+    {
+      "id": 47,
+      "name": "Student_047",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 1.4
+      },
+      "liked": [
+        108,
+        163
+      ],
+      "disliked": [
+        150
+      ]
+    },
+    {
+      "id": 48,
+      "name": "Student_048",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 2.1
+      },
+      "liked": [
+        100,
+        128,
+        104
+      ],
+      "disliked": [
+        64,
+        38
+      ]
+    },
+    {
+      "id": 49,
+      "name": "Student_049",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 3.5
+      },
+      "liked": [
+        110,
+        58
+      ],
+      "disliked": []
+    },
+    {
+      "id": 50,
+      "name": "Student_050",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": true,
+        "notenschnitt": 2.5
+      },
+      "liked": [
+        134,
+        120,
+        13
+      ],
+      "disliked": [
+        147,
+        66
+      ]
+    },
+    {
+      "id": 51,
+      "name": "Student_051",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.5
+      },
+      "liked": [
+        35,
+        120
+      ],
+      "disliked": [
+        139
+      ]
+    },
+    {
+      "id": 52,
+      "name": "Student_052",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.8
+      },
+      "liked": [
+        158,
+        131,
+        111,
+        142
+      ],
+      "disliked": [
+        117
+      ]
+    },
+    {
+      "id": 53,
+      "name": "Student_053",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.1
+      },
+      "liked": [
+        123,
+        117,
+        68
+      ],
+      "disliked": [
+        65,
+        168
+      ]
+    },
+    {
+      "id": 54,
+      "name": "Student_054",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.7
+      },
+      "liked": [
+        126,
+        162,
+        63,
+        72
+      ],
+      "disliked": [
+        116,
+        20
+      ]
+    },
+    {
+      "id": 55,
+      "name": "Student_055",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.6
+      },
+      "liked": [
+        71,
+        87,
+        83,
+        140
+      ],
+      "disliked": []
+    },
+    {
+      "id": 56,
+      "name": "Student_056",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.4
+      },
+      "liked": [
+        39,
+        61
+      ],
+      "disliked": []
+    },
+    {
+      "id": 57,
+      "name": "Student_057",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.7
+      },
+      "liked": [
+        40,
+        55,
+        17,
+        108,
+        106
+      ],
+      "disliked": [
+        89,
+        145
+      ]
+    },
+    {
+      "id": 58,
+      "name": "Student_058",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.9
+      },
+      "liked": [
+        16,
+        53,
+        109,
+        101,
+        151
+      ],
+      "disliked": [
+        6
+      ]
+    },
+    {
+      "id": 59,
+      "name": "Student_059",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.7
+      },
+      "liked": [
+        2,
+        92,
+        78,
+        101,
+        109
+      ],
+      "disliked": [
+        144
+      ]
+    },
+    {
+      "id": 60,
+      "name": "Student_060",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.5
+      },
+      "liked": [
+        57,
+        71,
+        113
+      ],
+      "disliked": [
+        129
+      ]
+    },
+    {
+      "id": 61,
+      "name": "Student_061",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 5.0
+      },
+      "liked": [
+        88,
+        105
+      ],
+      "disliked": [
+        43
+      ]
+    },
+    {
+      "id": 62,
+      "name": "Student_062",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.6
+      },
+      "liked": [
+        161,
+        138,
+        7,
+        102,
+        153
+      ],
+      "disliked": []
+    },
+    {
+      "id": 63,
+      "name": "Student_063",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.2
+      },
+      "liked": [
+        166,
+        111
+      ],
+      "disliked": []
+    },
+    {
+      "id": 64,
+      "name": "Student_064",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.7
+      },
+      "liked": [
+        47,
+        13,
+        68
+      ],
+      "disliked": [
+        102
+      ]
+    },
+    {
+      "id": 65,
+      "name": "Student_065",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.4
+      },
+      "liked": [
+        118,
+        85,
+        88,
+        99
+      ],
+      "disliked": []
+    },
+    {
+      "id": 66,
+      "name": "Student_066",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.1
+      },
+      "liked": [
+        65,
+        21,
+        122,
+        5
+      ],
+      "disliked": [
+        144
+      ]
+    },
+    {
+      "id": 67,
+      "name": "Student_067",
+      "characteristics": {
+        "inklusion": true,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.9
+      },
+      "liked": [
+        58,
+        168
+      ],
+      "disliked": [
+        18
+      ]
+    },
+    {
+      "id": 68,
+      "name": "Student_068",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.1
+      },
+      "liked": [
+        64,
+        52
+      ],
+      "disliked": []
+    },
+    {
+      "id": 69,
+      "name": "Student_069",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.3
+      },
+      "liked": [
+        40,
+        62
+      ],
+      "disliked": [
+        33,
+        125
+      ]
+    },
+    {
+      "id": 70,
+      "name": "Student_070",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.1
+      },
+      "liked": [
+        56,
+        121
+      ],
+      "disliked": [
+        67,
+        97
+      ]
+    },
+    {
+      "id": 71,
+      "name": "Student_071",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.8
+      },
+      "liked": [
+        157,
+        30,
+        42
+      ],
+      "disliked": [
+        83,
+        28
+      ]
+    },
+    {
+      "id": 72,
+      "name": "Student_072",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.8
+      },
+      "liked": [
+        149,
+        98
+      ],
+      "disliked": [
+        104
+      ]
+    },
+    {
+      "id": 73,
+      "name": "Student_073",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.5
+      },
+      "liked": [
+        153,
+        162,
+        63
+      ],
+      "disliked": []
+    },
+    {
+      "id": 74,
+      "name": "Student_074",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.3
+      },
+      "liked": [
+        79,
+        155
+      ],
+      "disliked": [
+        31,
+        147
+      ]
+    },
+    {
+      "id": 75,
+      "name": "Student_075",
+      "characteristics": {
+        "inklusion": true,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.6
+      },
+      "liked": [
+        138,
+        111
+      ],
+      "disliked": [
+        96
+      ]
+    },
+    {
+      "id": 76,
+      "name": "Student_076",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.6
+      },
+      "liked": [
+        167,
+        89
+      ],
+      "disliked": [
+        4,
+        110
+      ]
+    },
+    {
+      "id": 77,
+      "name": "Student_077",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.7
+      },
+      "liked": [
+        112,
+        94,
+        164,
+        119,
+        40
+      ],
+      "disliked": []
+    },
+    {
+      "id": 78,
+      "name": "Student_078",
+      "characteristics": {
+        "inklusion": true,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.8
+      },
+      "liked": [
+        135,
+        168,
+        70,
+        159,
+        139
+      ],
+      "disliked": []
+    },
+    {
+      "id": 79,
+      "name": "Student_079",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.1
+      },
+      "liked": [
+        113,
+        153,
+        69,
+        84,
+        63
+      ],
+      "disliked": [
+        23
+      ]
+    },
+    {
+      "id": 80,
+      "name": "Student_080",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.0
+      },
+      "liked": [
+        63,
+        120,
+        147,
+        158
+      ],
+      "disliked": [
+        100
+      ]
+    },
+    {
+      "id": 81,
+      "name": "Student_081",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.2
+      },
+      "liked": [
+        128,
+        85,
+        47,
+        126
+      ],
+      "disliked": []
+    },
+    {
+      "id": 82,
+      "name": "Student_082",
+      "characteristics": {
+        "inklusion": true,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.1
+      },
+      "liked": [
+        67,
+        89,
+        72
+      ],
+      "disliked": [
+        157
+      ]
+    },
+    {
+      "id": 83,
+      "name": "Student_083",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.3
+      },
+      "liked": [
+        3,
+        134,
+        49,
+        22
+      ],
+      "disliked": [
+        65,
+        109
+      ]
+    },
+    {
+      "id": 84,
+      "name": "Student_084",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.6
+      },
+      "liked": [
+        62,
+        123,
+        167,
+        127,
+        116
+      ],
+      "disliked": [
+        5,
+        24
+      ]
+    },
+    {
+      "id": 85,
+      "name": "Student_085",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.6
+      },
+      "liked": [
+        105,
+        63,
+        79,
+        150
+      ],
+      "disliked": []
+    },
+    {
+      "id": 86,
+      "name": "Student_086",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.9
+      },
+      "liked": [
+        143,
+        137,
+        90,
+        110
+      ],
+      "disliked": [
+        146
+      ]
+    },
+    {
+      "id": 87,
+      "name": "Student_087",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 5.0
+      },
+      "liked": [
+        118,
+        70,
+        79,
+        65
+      ],
+      "disliked": [
+        60
+      ]
+    },
+    {
+      "id": 88,
+      "name": "Student_088",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.0
+      },
+      "liked": [
+        50,
+        81
+      ],
+      "disliked": [
+        31,
+        141
+      ]
+    },
+    {
+      "id": 89,
+      "name": "Student_089",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.4
+      },
+      "liked": [
+        56,
+        125,
+        71
+      ],
+      "disliked": []
+    },
+    {
+      "id": 90,
+      "name": "Student_090",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.2
+      },
+      "liked": [
+        50,
+        76,
+        59,
+        94
+      ],
+      "disliked": []
+    },
+    {
+      "id": 91,
+      "name": "Student_091",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.4
+      },
+      "liked": [
+        4,
+        138,
+        33
+      ],
+      "disliked": [
+        73
+      ]
+    },
+    {
+      "id": 92,
+      "name": "Student_092",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.5
+      },
+      "liked": [
+        143,
+        75
+      ],
+      "disliked": []
+    },
+    {
+      "id": 93,
+      "name": "Student_093",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.2
+      },
+      "liked": [
+        127,
+        27,
+        4
+      ],
+      "disliked": [
+        151,
+        75
+      ]
+    },
+    {
+      "id": 94,
+      "name": "Student_094",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.7
+      },
+      "liked": [
+        114,
+        88,
+        48,
+        14,
+        65
+      ],
+      "disliked": [
+        129
+      ]
+    },
+    {
+      "id": 95,
+      "name": "Student_095",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.3
+      },
+      "liked": [
+        104,
+        127
+      ],
+      "disliked": []
+    },
+    {
+      "id": 96,
+      "name": "Student_096",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.5
+      },
+      "liked": [
+        163,
+        14
+      ],
+      "disliked": [
+        40,
+        147
+      ]
+    },
+    {
+      "id": 97,
+      "name": "Student_097",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 5.0
+      },
+      "liked": [
+        64,
+        31,
+        144,
+        108
+      ],
+      "disliked": []
+    },
+    {
+      "id": 98,
+      "name": "Student_098",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.1
+      },
+      "liked": [
+        99,
+        117,
+        115
+      ],
+      "disliked": [
+        77,
+        155
+      ]
+    },
+    {
+      "id": 99,
+      "name": "Student_099",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.9
+      },
+      "liked": [
+        147,
+        160,
+        16,
+        158,
+        26
+      ],
+      "disliked": [
+        56
+      ]
+    },
+    {
+      "id": 100,
+      "name": "Student_100",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.4
+      },
+      "liked": [
+        21,
+        41,
+        62
+      ],
+      "disliked": [
+        47
+      ]
+    },
+    {
+      "id": 101,
+      "name": "Student_101",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.0
+      },
+      "liked": [
+        1,
+        106
+      ],
+      "disliked": []
+    },
+    {
+      "id": 102,
+      "name": "Student_102",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.9
+      },
+      "liked": [
+        154,
+        122,
+        75,
+        9,
+        60
+      ],
+      "disliked": [
+        77,
+        76
+      ]
+    },
+    {
+      "id": 103,
+      "name": "Student_103",
+      "characteristics": {
+        "inklusion": true,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.7
+      },
+      "liked": [
+        60,
+        68,
+        162,
+        152,
+        51
+      ],
+      "disliked": []
+    },
+    {
+      "id": 104,
+      "name": "Student_104",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.1
+      },
+      "liked": [
+        141,
+        58,
+        167,
+        39,
+        69
+      ],
+      "disliked": []
+    },
+    {
+      "id": 105,
+      "name": "Student_105",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.1
+      },
+      "liked": [
+        16,
+        43,
+        79
+      ],
+      "disliked": []
+    },
+    {
+      "id": 106,
+      "name": "Student_106",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.6
+      },
+      "liked": [
+        32,
+        121,
+        78,
+        104
+      ],
+      "disliked": [
+        71
+      ]
+    },
+    {
+      "id": 107,
+      "name": "Student_107",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.4
+      },
+      "liked": [
+        21,
+        155,
+        11,
+        112,
+        83
+      ],
+      "disliked": [
+        161
+      ]
+    },
+    {
+      "id": 108,
+      "name": "Student_108",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.7
+      },
+      "liked": [
+        24,
+        59,
+        149,
+        152
+      ],
+      "disliked": []
+    },
+    {
+      "id": 109,
+      "name": "Student_109",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.8
+      },
+      "liked": [
+        69,
+        149
+      ],
+      "disliked": [
+        11,
+        45
+      ]
+    },
+    {
+      "id": 110,
+      "name": "Student_110",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.8
+      },
+      "liked": [
+        168,
+        115,
+        72,
+        47,
+        151
+      ],
+      "disliked": [
+        116,
+        130
+      ]
+    },
+    {
+      "id": 111,
+      "name": "Student_111",
+      "characteristics": {
+        "inklusion": true,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.5
+      },
+      "liked": [
+        90,
+        105
+      ],
+      "disliked": [
+        86
+      ]
+    },
+    {
+      "id": 112,
+      "name": "Student_112",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.1
+      },
+      "liked": [
+        27,
+        42,
+        85,
+        106
+      ],
+      "disliked": [
+        132,
+        76
+      ]
+    },
+    {
+      "id": 113,
+      "name": "Student_113",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.0
+      },
+      "liked": [
+        10,
+        118,
+        23,
+        81,
+        65
+      ],
+      "disliked": [
+        87,
+        32
+      ]
+    },
+    {
+      "id": 114,
+      "name": "Student_114",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.7
+      },
+      "liked": [
+        1,
+        140,
+        120,
+        106,
+        14
+      ],
+      "disliked": [
+        51,
+        138
+      ]
+    },
+    {
+      "id": 115,
+      "name": "Student_115",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.7
+      },
+      "liked": [
+        129,
+        162,
+        114,
+        14
+      ],
+      "disliked": [
+        54,
+        70
+      ]
+    },
+    {
+      "id": 116,
+      "name": "Student_116",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.5
+      },
+      "liked": [
+        113,
+        126,
+        32
+      ],
+      "disliked": [
+        8
+      ]
+    },
+    {
+      "id": 117,
+      "name": "Student_117",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.2
+      },
+      "liked": [
+        41,
+        80,
+        143
+      ],
+      "disliked": [
+        4,
+        146
+      ]
+    },
+    {
+      "id": 118,
+      "name": "Student_118",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.6
+      },
+      "liked": [
+        58,
+        30,
+        120,
+        31,
+        167
+      ],
+      "disliked": []
+    },
+    {
+      "id": 119,
+      "name": "Student_119",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.4
+      },
+      "liked": [
+        75,
+        132,
+        70
+      ],
+      "disliked": [
+        109
+      ]
+    },
+    {
+      "id": 120,
+      "name": "Student_120",
+      "characteristics": {
+        "inklusion": true,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.6
+      },
+      "liked": [
+        63,
+        117,
+        143,
+        38,
+        99
+      ],
+      "disliked": [
+        50
+      ]
+    },
+    {
+      "id": 121,
+      "name": "Student_121",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.1
+      },
+      "liked": [
+        71,
+        107,
+        88
+      ],
+      "disliked": []
+    },
+    {
+      "id": 122,
+      "name": "Student_122",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.2
+      },
+      "liked": [
+        73,
+        77,
+        152,
+        150
+      ],
+      "disliked": []
+    },
+    {
+      "id": 123,
+      "name": "Student_123",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.1
+      },
+      "liked": [
+        115,
+        139,
+        125,
+        89,
+        86
+      ],
+      "disliked": []
+    },
+    {
+      "id": 124,
+      "name": "Student_124",
+      "characteristics": {
+        "inklusion": true,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.1
+      },
+      "liked": [
+        83,
+        49,
+        62,
+        148,
+        99
+      ],
+      "disliked": [
+        61
+      ]
+    },
+    {
+      "id": 125,
+      "name": "Student_125",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.0
+      },
+      "liked": [
+        82,
+        122,
+        98,
+        99,
+        168
+      ],
+      "disliked": []
+    },
+    {
+      "id": 126,
+      "name": "Student_126",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.3
+      },
+      "liked": [
+        10,
+        33,
+        130
+      ],
+      "disliked": [
+        156
+      ]
+    },
+    {
+      "id": 127,
+      "name": "Student_127",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.1
+      },
+      "liked": [
+        113,
+        26,
+        136,
+        117
+      ],
+      "disliked": []
+    },
+    {
+      "id": 128,
+      "name": "Student_128",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.7
+      },
+      "liked": [
+        37,
+        105
+      ],
+      "disliked": [
+        41,
+        20
+      ]
+    },
+    {
+      "id": 129,
+      "name": "Student_129",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.5
+      },
+      "liked": [
+        87,
+        161,
+        102,
+        168,
+        21
+      ],
+      "disliked": [
+        86
+      ]
+    },
+    {
+      "id": 130,
+      "name": "Student_130",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.3
+      },
+      "liked": [
+        162,
+        125,
+        140,
+        10,
+        160
+      ],
+      "disliked": [
+        19
+      ]
+    },
+    {
+      "id": 131,
+      "name": "Student_131",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.2
+      },
+      "liked": [
+        74,
+        59,
+        24
+      ],
+      "disliked": [
+        115,
+        27
+      ]
+    },
+    {
+      "id": 132,
+      "name": "Student_132",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.2
+      },
+      "liked": [
+        43,
+        77
+      ],
+      "disliked": [
+        8
+      ]
+    },
+    {
+      "id": 133,
+      "name": "Student_133",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.5
+      },
+      "liked": [
+        15,
+        76
+      ],
+      "disliked": [
+        94
+      ]
+    },
+    {
+      "id": 134,
+      "name": "Student_134",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.8
+      },
+      "liked": [
+        38,
+        63,
+        137,
+        106
+      ],
+      "disliked": [
+        150
+      ]
+    },
+    {
+      "id": 135,
+      "name": "Student_135",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.3
+      },
+      "liked": [
+        45,
+        21,
+        158
+      ],
+      "disliked": []
+    },
+    {
+      "id": 136,
+      "name": "Student_136",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.9
+      },
+      "liked": [
+        62,
+        128,
+        151,
+        37,
+        60
+      ],
+      "disliked": [
+        122,
+        69
+      ]
+    },
+    {
+      "id": 137,
+      "name": "Student_137",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.3
+      },
+      "liked": [
+        3,
+        120,
+        74,
+        141,
+        41
+      ],
+      "disliked": [
+        20
+      ]
+    },
+    {
+      "id": 138,
+      "name": "Student_138",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.0
+      },
+      "liked": [
+        152,
+        77,
+        165,
+        109,
+        65
+      ],
+      "disliked": [
+        120
+      ]
+    },
+    {
+      "id": 139,
+      "name": "Student_139",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.1
+      },
+      "liked": [
+        99,
+        124,
+        28,
+        61
+      ],
+      "disliked": []
+    },
+    {
+      "id": 140,
+      "name": "Student_140",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.5
+      },
+      "liked": [
+        92,
+        149,
+        76,
+        6,
+        102
+      ],
+      "disliked": [
+        72,
+        3
+      ]
+    },
+    {
+      "id": 141,
+      "name": "Student_141",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.9
+      },
+      "liked": [
+        128,
+        74
+      ],
+      "disliked": [
+        59,
+        159
+      ]
+    },
+    {
+      "id": 142,
+      "name": "Student_142",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.2
+      },
+      "liked": [
+        164,
+        49,
+        160,
+        65
+      ],
+      "disliked": []
+    },
+    {
+      "id": 143,
+      "name": "Student_143",
+      "characteristics": {
+        "inklusion": true,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.1
+      },
+      "liked": [
+        25,
+        162,
+        167
+      ],
+      "disliked": [
+        11,
+        81
+      ]
+    },
+    {
+      "id": 144,
+      "name": "Student_144",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.5
+      },
+      "liked": [
+        150,
+        94,
+        34,
+        24,
+        76
+      ],
+      "disliked": []
+    },
+    {
+      "id": 145,
+      "name": "Student_145",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.7
+      },
+      "liked": [
+        107,
+        45,
+        52,
+        34
+      ],
+      "disliked": [
+        143,
+        97
+      ]
+    },
+    {
+      "id": 146,
+      "name": "Student_146",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.8
+      },
+      "liked": [
+        66,
+        124,
+        76,
+        87
+      ],
+      "disliked": []
+    },
+    {
+      "id": 147,
+      "name": "Student_147",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.2
+      },
+      "liked": [
+        20,
+        37
+      ],
+      "disliked": [
+        60
+      ]
+    },
+    {
+      "id": 148,
+      "name": "Student_148",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.9
+      },
+      "liked": [
+        94,
+        24,
+        102,
+        4,
+        68
+      ],
+      "disliked": [
+        143,
+        34
+      ]
+    },
+    {
+      "id": 149,
+      "name": "Student_149",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.8
+      },
+      "liked": [
+        68,
+        151,
+        98,
+        165,
+        96
+      ],
+      "disliked": [
+        28
+      ]
+    },
+    {
+      "id": 150,
+      "name": "Student_150",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.2
+      },
+      "liked": [
+        7,
+        160,
+        144
+      ],
+      "disliked": [
+        85
+      ]
+    },
+    {
+      "id": 151,
+      "name": "Student_151",
+      "characteristics": {
+        "inklusion": true,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 5.0
+      },
+      "liked": [
+        17,
+        164,
+        119
+      ],
+      "disliked": [
+        79,
+        106
+      ]
+    },
+    {
+      "id": 152,
+      "name": "Student_152",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.6
+      },
+      "liked": [
+        12,
+        10
+      ],
+      "disliked": []
+    },
+    {
+      "id": 153,
+      "name": "Student_153",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.8
+      },
+      "liked": [
+        30,
+        25,
+        61,
+        138
+      ],
+      "disliked": [
+        37
+      ]
+    },
+    {
+      "id": 154,
+      "name": "Student_154",
+      "characteristics": {
+        "inklusion": true,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.1
+      },
+      "liked": [
+        95,
+        139,
+        108,
+        151,
+        40
+      ],
+      "disliked": [
+        110
+      ]
+    },
+    {
+      "id": 155,
+      "name": "Student_155",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.5
+      },
+      "liked": [
+        159,
+        105
+      ],
+      "disliked": [
+        72
+      ]
+    },
+    {
+      "id": 156,
+      "name": "Student_156",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.9
+      },
+      "liked": [
+        95,
+        56
+      ],
+      "disliked": [
+        116,
+        62
+      ]
+    },
+    {
+      "id": 157,
+      "name": "Student_157",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.4
+      },
+      "liked": [
+        95,
+        140,
+        167,
+        92
+      ],
+      "disliked": []
+    },
+    {
+      "id": 158,
+      "name": "Student_158",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.4
+      },
+      "liked": [
+        71,
+        49
+      ],
+      "disliked": [
+        32
+      ]
+    },
+    {
+      "id": 159,
+      "name": "Student_159",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.9
+      },
+      "liked": [
+        55,
+        166,
+        165,
+        153,
+        6
+      ],
+      "disliked": []
+    },
+    {
+      "id": 160,
+      "name": "Student_160",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.9
+      },
+      "liked": [
+        63,
+        33
+      ],
+      "disliked": [
+        147
+      ]
+    },
+    {
+      "id": 161,
+      "name": "Student_161",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.3
+      },
+      "liked": [
+        142,
+        54,
+        151
+      ],
+      "disliked": []
+    },
+    {
+      "id": 162,
+      "name": "Student_162",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.5
+      },
+      "liked": [
+        85,
+        38,
+        153
+      ],
+      "disliked": []
+    },
+    {
+      "id": 163,
+      "name": "Student_163",
+      "characteristics": {
+        "inklusion": true,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.9
+      },
+      "liked": [
+        38,
+        34
+      ],
+      "disliked": [
+        141
+      ]
+    },
+    {
+      "id": 164,
+      "name": "Student_164",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.6
+      },
+      "liked": [
+        29,
+        7,
+        34,
+        4
+      ],
+      "disliked": []
+    },
+    {
+      "id": 165,
+      "name": "Student_165",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 4.4
+      },
+      "liked": [
+        151,
+        83,
+        5,
+        45
+      ],
+      "disliked": []
+    },
+    {
+      "id": 166,
+      "name": "Student_166",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 1.3
+      },
+      "liked": [
+        33,
+        108,
+        135,
+        30
+      ],
+      "disliked": []
+    },
+    {
+      "id": 167,
+      "name": "Student_167",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 2.0
+      },
+      "liked": [
+        115,
+        93
+      ],
+      "disliked": [
+        134
+      ]
+    },
+    {
+      "id": 168,
+      "name": "Student_168",
+      "characteristics": {
+        "inklusion": false,
+        "nawi": false,
+        "bläser": false,
+        "notenschnitt": 3.7
+      },
+      "liked": [
+        129,
+        57
+      ],
+      "disliked": [
+        160
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "name": "Group A",
+      "max_size": 31,
+      "constraints": [
+        {
+          "characteristic": "nawi",
+          "constraint_type": "all",
+          "value": null
+        }
+      ],
+      "student_ids": [
+        24,
+        3,
+        7,
+        8,
+        20,
+        5,
+        9,
+        17,
+        25,
+        6,
+        4,
+        21,
+        18,
+        15,
+        2,
+        23,
+        11,
+        10,
+        1,
+        14,
+        12,
+        13,
+        19,
+        16,
+        22,
+        85,
+        155,
+        93,
+        65,
+        78,
+        146
+      ]
+    },
+    {
+      "name": "Group B",
+      "max_size": 31,
+      "constraints": [
+        {
+          "characteristic": "bläser",
+          "constraint_type": "all",
+          "value": null
+        }
+      ],
+      "student_ids": [
+        35,
+        43,
+        39,
+        40,
+        32,
+        48,
+        28,
+        33,
+        26,
+        36,
+        50,
+        47,
+        49,
+        29,
+        42,
+        37,
+        27,
+        45,
+        38,
+        41,
+        46,
+        31,
+        34,
+        44,
+        30,
+        113,
+        68,
+        159,
+        109,
+        145,
+        107
+      ]
+    },
+    {
+      "name": "Group C",
+      "max_size": 31,
+      "constraints": [],
+      "student_ids": [
+        102,
+        152,
+        80,
+        104,
+        75,
+        56,
+        117,
+        124,
+        108,
+        150,
+        103,
+        52,
+        88,
+        135,
+        51,
+        90,
+        101,
+        143,
+        112,
+        114,
+        69,
+        141,
+        165,
+        138,
+        67,
+        168,
+        95,
+        154,
+        164,
+        116,
+        91
+      ]
+    },
+    {
+      "name": "Group D",
+      "max_size": 25,
+      "constraints": [
+        {
+          "characteristic": "inklusion",
+          "constraint_type": "max",
+          "value": 3
+        }
+      ],
+      "student_ids": [
+        105,
+        136,
+        160,
+        115,
+        76,
+        100,
+        74,
+        142,
+        71,
+        94,
+        127,
+        61,
+        137,
+        59,
+        86,
+        63,
+        77,
+        82,
+        84,
+        83,
+        126,
+        139,
+        79,
+        62,
+        106
+      ]
+    },
+    {
+      "name": "Group E",
+      "max_size": 25,
+      "constraints": [
+        {
+          "characteristic": "inklusion",
+          "constraint_type": "max",
+          "value": 3
+        }
+      ],
+      "student_ids": [
+        53,
+        60,
+        151,
+        166,
+        72,
+        123,
+        163,
+        161,
+        130,
+        96,
+        153,
+        131,
+        97,
+        162,
+        81,
+        121,
+        129,
+        111,
+        144,
+        147,
+        140,
+        149,
+        110,
+        58,
+        125
+      ]
+    },
+    {
+      "name": "Group F",
+      "max_size": 25,
+      "constraints": [
+        {
+          "characteristic": "inklusion",
+          "constraint_type": "max",
+          "value": 3
+        }
+      ],
+      "student_ids": [
+        57,
+        89,
+        120,
+        158,
+        118,
+        98,
+        156,
+        148,
+        66,
+        73,
+        119,
+        132,
+        55,
+        122,
+        92,
+        64,
+        167,
+        134,
+        157,
+        133,
+        99,
+        54,
+        128,
+        70,
+        87
+      ]
+    }
+  ],
+  "weights": {
+    "likes_weight": 1.0,
+    "dislikes_weight": 1.0,
+    "characteristic_weights": {
+      "inklusion": 0.0,
+      "nawi": 0.0,
+      "bläser": 0.0,
+      "notenschnitt": 2.0
+    }
+  }
+}
