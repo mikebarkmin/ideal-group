@@ -162,6 +162,16 @@ _translations = {
         "Student Relationships": "Schülerbeziehungen",
         "Liked by": "Gemocht von",
         "Disliked by": "Abgelehnt von",
+        
+        # Results dialog
+        "Select Optimization Result": "Optimierungsergebnis auswählen",
+        "Select a result to apply. Results are sorted by total score (best first).": "Wählen Sie ein Ergebnis aus. Ergebnisse sind nach Gesamtpunktzahl sortiert (beste zuerst).",
+        "Results": "Ergebnisse",
+        "Apply Selected": "Ausgewähltes anwenden",
+        "Optimization produced no results": "Optimierung hat keine Ergebnisse erzeugt",
+        "Switch Result...": "Ergebnis wechseln...",
+        "No Results": "Keine Ergebnisse",
+        "Run optimization first to generate results.": "Führen Sie zuerst eine Optimierung durch, um Ergebnisse zu erzeugen.",
     }
 }
 

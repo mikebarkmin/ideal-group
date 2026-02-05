@@ -22,6 +22,7 @@ from .kanban_board import KanbanBoard
 from .info_widget import InfoWidget
 from .export_dialog import ExportDialog
 from .relationship_graph import RelationshipGraphWindow
+from .results_dialog import ResultsDialog
 
 MAX_ITERATIONS_PER_RESTART = 25000
 
@@ -30,7 +31,7 @@ class OptimizationThread(QThread):
     """Thread for running the optimization algorithm."""
     
     progress = Signal(int, float, float, int)  # iteration, temperature, score, restart_num
-    finished_signal = Signal(object)  # optimized project
+    finished_signal = Signal(object)  # list of optimized projects
     
     def __init__(self, project: Project, num_restarts: int = 10):
         super().__init__()
@@ -41,17 +42,18 @@ class OptimizationThread(QThread):
         def progress_callback(iteration, temperature, score, restart_num):
             self.progress.emit(iteration, temperature, score, restart_num)
         
-        result = optimize_with_restarts(
+        results = optimize_with_restarts(
             self.project,
             num_restarts=self.num_restarts,
             initial_temp=200.0,
             cooling_rate=0.9995,
             min_temp=0.01,
             max_iterations=MAX_ITERATIONS_PER_RESTART,
-            progress_callback=progress_callback
+            progress_callback=progress_callback,
+            return_all_results=True
         )
         
-        self.finished_signal.emit(result)
+        self.finished_signal.emit(results)
 
 
 class MainWindow(QMainWindow):
@@ -62,6 +64,7 @@ class MainWindow(QMainWindow):
         self.project = Project()
         self.project_path: str = None
         self.optimization_thread: OptimizationThread = None
+        self.optimization_results: list[Project] = []  # Store results for switching
         
         self.setWindowTitle(tr("Ideal Group - Student Grouping Optimizer"))
         self.setMinimumSize(1200, 700)
@@ -164,6 +167,12 @@ class MainWindow(QMainWindow):
         run_action.setShortcut("F5")
         run_action.triggered.connect(self.run_optimization)
         algo_menu.addAction(run_action)
+        
+        self.switch_result_action = QAction(tr("Switch Result..."), self)
+        self.switch_result_action.setShortcut("F6")
+        self.switch_result_action.triggered.connect(self.switch_result)
+        self.switch_result_action.setEnabled(False)
+        algo_menu.addAction(self.switch_result_action)
         
         check_action = QAction(tr("Check Constraints"), self)
         check_action.triggered.connect(self.check_constraints)
@@ -369,27 +378,46 @@ class MainWindow(QMainWindow):
                 f"{tr('Run')} {restart_num}/{num_restarts} - {tr('Score')}: {score:.1f}"
             )
     
-    def on_optimization_finished(self, result):
+    def on_optimization_finished(self, results: list):
         if hasattr(self, 'progress_dialog') and self.progress_dialog:
             self.progress_dialog.close()
             self.progress_dialog = None
         
-        new_score = calculate_total_score(result)
+        if not results:
+            self.statusbar.showMessage(tr("Optimization produced no results"))
+            return
+        
+        # Store results for later switching
+        self.optimization_results = results
+        self.switch_result_action.setEnabled(True)
+        
         old_score = getattr(self, '_score_before_optimization', float('-inf'))
         
-        if new_score > old_score:
-            # New result is better, use it
-            self.project = result
-            self.group_config.set_groups(self.project.groups)
-            self.refresh_ui()
-            self.statusbar.showMessage(
-                f"{tr('Optimization complete.')} {tr('Score')}: {old_score:.1f} -> {new_score:.1f} (+{new_score - old_score:.1f})"
-            )
-        else:
-            # Keep current assignment
-            self.statusbar.showMessage(
-                f"{tr('Optimization complete.')} {tr('Kept current result')} ({tr('Score')}: {old_score:.1f} >= {new_score:.1f})"
-            )
+        # Show results selection dialog
+        self._apply_selected_result(old_score)
+    
+    def switch_result(self):
+        """Show the results dialog to switch to a different result."""
+        if not self.optimization_results:
+            QMessageBox.information(self, tr("No Results"), tr("Run optimization first to generate results."))
+            return
+        
+        old_score = calculate_total_score(self.project)
+        self._apply_selected_result(old_score)
+    
+    def _apply_selected_result(self, old_score: float):
+        """Show results dialog and apply selected result."""
+        dialog = ResultsDialog(self.optimization_results, self)
+        if dialog.exec() == QDialog.DialogCode.Accepted:
+            selected = dialog.get_selected_result()
+            if selected:
+                new_score = calculate_total_score(selected)
+                self.project = selected
+                self.group_config.set_groups(self.project.groups)
+                self.refresh_ui()
+                self.statusbar.showMessage(
+                    f"{tr('Score')}: {old_score:.1f} -> {new_score:.1f} ({new_score - old_score:+.1f})"
+                )
     
     def on_optimization_canceled(self):
         if self.optimization_thread and self.optimization_thread.isRunning():

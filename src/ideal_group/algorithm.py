@@ -589,10 +589,11 @@ def optimize_with_restarts(
     min_temp: float = 0.01,
     max_iterations: int = 25000,
     progress_callback: Callable[[int, float, float, int], None] | None = None,
-    verbose: bool = True
-) -> Project:
+    verbose: bool = True,
+    return_all_results: bool = False
+) -> Project | list[Project]:
     """
-    Run simulated annealing multiple times and return the best result.
+    Run simulated annealing multiple times and return the best result (or all results).
     
     IMPROVED: Better tracking, diagnostics, and increased default restarts.
     
@@ -605,13 +606,15 @@ def optimize_with_restarts(
         max_iterations: Maximum iterations per run
         progress_callback: Called with (iteration, temperature, score, restart_num)
         verbose: Print diagnostic information
+        return_all_results: If True, return a list of all results sorted by score (descending)
     
     Returns:
-        Project with the best optimized assignments across all runs
+        Project with the best optimized assignments, or list of all Projects if return_all_results=True
     """
     overall_best = None
     overall_best_score = float('-inf')
     
+    all_results: list[Project] = []  # Track all results
     scores = []  # Track all run scores for statistics
     
     if verbose:
@@ -645,6 +648,7 @@ def optimize_with_restarts(
         
         score = calculate_total_score(result)
         scores.append(score)
+        all_results.append(result)
         
         if score > overall_best_score:
             overall_best = result
@@ -682,5 +686,10 @@ def optimize_with_restarts(
                 print(f"  - {v}")
         else:
             print(f"✓ All hard constraints satisfied")
+    
+    if return_all_results:
+        # Sort by score descending
+        all_results.sort(key=calculate_total_score, reverse=True)
+        return all_results
     
     return overall_best
