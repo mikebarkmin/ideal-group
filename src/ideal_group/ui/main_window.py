@@ -45,9 +45,6 @@ class OptimizationThread(QThread):
         results = optimize_with_restarts(
             self.project,
             num_restarts=self.num_restarts,
-            initial_temp=200.0,
-            cooling_rate=0.9995,
-            min_temp=0.01,
             max_iterations=MAX_ITERATIONS_PER_RESTART,
             progress_callback=progress_callback,
             return_all_results=True
