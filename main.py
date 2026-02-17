@@ -25,12 +25,14 @@ def main():
     app = QApplication(sys.argv)
     app.setApplicationName("Ideal Group")
     app.setOrganizationName("IdealGroup")
+    scheme = app.styleHints().colorScheme()
+    print(f"Color scheme: {scheme}")
     
     # Auto-detect language from environment
     lang = os.environ.get("IDEAL_GROUP_LANG")
     if not lang:
         lang = get_system_language()
-    
+
     # Allow --lang argument
     if "--lang" in sys.argv:
         idx = sys.argv.index("--lang")
