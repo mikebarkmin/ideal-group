@@ -15,8 +15,8 @@ jobs:
             artifact_name: IdealGroup.exe
             asset_name: IdealGroup-windows.exe
           - os: macos-latest
-            artifact_name: IdealGroup
-            asset_name: IdealGroup-macos
+            artifact_name: IdealGroup.app
+            asset_name: IdealGroup-macos.dmg
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout code
@@ -40,12 +40,29 @@ jobs:
       - name: Build with PyInstaller (macOS)
         if: matrix.os == 'macos-latest'
         run: |
-          uv run pyinstaller --noconfirm --onefile --noconsole --add-data="idealgroup.ico:." --name "IdealGroup" main.py
+          uv run pyinstaller --noconfirm --onedir --windowed --icon=idealgroup.ico --add-data="idealgroup.ico:." --name "IdealGroup" main.py
+      - name: Build DMG (macOS)
+        if: matrix.os == 'macos-latest'
+        run: |
+          brew install create-dmg
+          mkdir -p dist/dmg
+          cp -r dist/IdealGroup.app dist/dmg/
+          create-dmg \
+            --volname "IdealGroup" \
+            --volicon "idealgroup.ico" \
+            --window-pos 200 120 \
+            --window-size 600 300 \
+            --icon-size 100 \
+            --icon "IdealGroup.app" 175 120 \
+            --hide-extension "IdealGroup.app" \
+            --app-drop-link 425 120 \
+            "dist/IdealGroup-macos.dmg" \
+            "dist/dmg/"
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.asset_name }}
-          path: dist/${{ matrix.artifact_name }}
+          path: ${{ matrix.os == 'macos-latest' && 'dist/IdealGroup-macos.dmg' || format('dist/{0}', matrix.artifact_name) }}
   release:
     needs: build
     runs-on: ubuntu-latest
@@ -65,19 +82,19 @@ jobs:
       - name: Download macOS artifact
         uses: actions/download-artifact@v4
         with:
-          name: IdealGroup-macos
+          name: IdealGroup-macos.dmg
           path: artifacts/macos
       - name: Prepare release assets
         run: |
           mv artifacts/linux/IdealGroup IdealGroup-linux
           mv artifacts/windows/IdealGroup.exe IdealGroup-windows.exe
-          mv artifacts/macos/IdealGroup IdealGroup-macos
-          chmod +x IdealGroup-linux IdealGroup-macos
+          mv artifacts/macos/IdealGroup-macos.dmg IdealGroup-macos.dmg
+          chmod +x IdealGroup-linux
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
           files: |
             IdealGroup-linux
             IdealGroup-windows.exe
-            IdealGroup-macos
+            IdealGroup-macos.dmg
           generate_release_notes: true
